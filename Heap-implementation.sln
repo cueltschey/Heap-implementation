@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heap-implementation", "Heap-implementation\Heap-implementation.csproj", "{E3D80505-D726-4B91-9969-3052E7355043}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3D80505-D726-4B91-9969-3052E7355043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3D80505-D726-4B91-9969-3052E7355043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3D80505-D726-4B91-9969-3052E7355043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3D80505-D726-4B91-9969-3052E7355043}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {700CA6B9-9536-46F4-A5B7-1B34C12EBA9D}
+	EndGlobalSection
+EndGlobal
