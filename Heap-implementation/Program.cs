@@ -2,7 +2,7 @@
 
 using Heap_implementation;
 
-Heap heap = new Heap(10, "max");
+Heap heap = new Heap(10);
 
 heap.insert(11);
 heap.insert(22);
@@ -21,3 +21,15 @@ heap.insert(11);
 
 heap.display();
 
+Console.WriteLine();
+
+Console.WriteLine(heap.remove());
+Console.WriteLine(heap.remove());
+Console.WriteLine(heap.remove());
+Console.WriteLine(heap.remove());
+Console.WriteLine(heap.remove());
+Console.WriteLine(heap.remove());
+Console.WriteLine(heap.remove());
+Console.WriteLine(heap.remove());
+
+heap.display();

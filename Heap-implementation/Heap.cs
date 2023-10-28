@@ -40,7 +40,7 @@ namespace Heap_implementation
                 else
                 {
                     Console.WriteLine(node.data);
-                    foreach(Node n in node.children)
+                    foreach (Node n in node.children)
                     {
                         Console.WriteLine(n.data);
                     }
@@ -63,7 +63,7 @@ namespace Heap_implementation
         {
             bool right;
             bool left;
-            if(curdepth < depth)
+            if (curdepth < depth)
             {
                 left = insert(node.children[0], data, curdepth + 1);
                 if (left)
@@ -97,7 +97,7 @@ namespace Heap_implementation
          */
         public void insert(int data)
         {
-            if(!insert(root, data))
+            if (!insert(root, data))
             {
                 depth += 1;
                 insert(root, data);
@@ -124,11 +124,11 @@ namespace Heap_implementation
             }
             else
             {
-                if(node.degree() != 0)
+                if (node.degree() != 0)
                 {
-                    foreach(Node n in node.children)
+                    foreach (Node n in node.children)
                     {
-                        if(n.data < node.data)
+                        if (n.data < node.data)
                         {
                             int inter = n.data;
                             n.data = node.data;
@@ -140,40 +140,54 @@ namespace Heap_implementation
         }
         private void balance(Node node)
         {
-            if(root.degree() == 2)
+            foreach (Node n in node.children)
             {
-                if (root.children[0].data < root.children[1].data)
+                if (n.data < node.data)
                 {
-                    root.children[0].children[1]
+                    int inter = node.data;
+                    node.data = n.data;
+                    n.data = inter;
+                    balance(n);
                 }
             }
+
         }
-        private int? remove(Node node, int curdepth = 0)
+        private bool swap_values(Node node, int curdepth = 0)
         {
-            int? right;
-            int? left;
-            if(curdepth < depth)
+            bool right;
+            bool left;
+            if (curdepth < depth)
             {
-                right = remove(node.children[1], curdepth + 1);
-                left = remove(node.children[0], curdepth + 1);
-                if(right != null)
+                right = swap_values(node.children[1], curdepth + 1);
+                if (!right)
                 {
-                    return right;
+                    left = swap_values(node.children[0], curdepth + 1);
+                    return left;
                 }
                 else
                 {
-                    return left;
+                    return right;
                 }
             }
             else
             {
                 if (node.degree() != 0)
                 {
-                    int res = node.children[-1].data;
-                    node.children.RemoveAt(-1);
-                    return res;
+                    int last = node.children.Count - 1;
+                    int res = node.children[last].data;
+                    node.children.RemoveAt(last);
+                    root.data = res;
+                    return true;
                 }
+                return false;
             }
-            return null;
+        }
+        public int? remove()
+        {
+            int? res = root.data;
+            swap_values(root);
+            balance(root);
+            return res;
+        }
     }
 }
